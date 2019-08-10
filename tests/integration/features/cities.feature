@@ -13,7 +13,7 @@ Scenario: Making a GET request with and invalid id
   When I make a GET request to "cities"
   Then The response status code should be 404
   And The response property "message" should be "not found"
-  And The response property "code" should be "NotFound"
+  And The response property "code" should be "NotFoundError"
 
 Scenario: Making a GET request with latitude and longitude
   Given The latitude 49.48 and longitude 8.46
@@ -21,3 +21,10 @@ Scenario: Making a GET request with latitude and longitude
   Then The response status code should be 200
   And The response should be an array
   And The response should be not an empty array
+
+Scenario: Making a GET request with missing parameter
+  Given There are no latitude and longitude
+  When I make a GET request to "cities"
+  Then The response status code should be 400
+  And The response property "code" should be "BadRequestError"
+  And The response property "message" should be "lat/lng required"

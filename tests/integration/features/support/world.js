@@ -15,7 +15,9 @@ class CustomWorld {
   }
 
   get (path, callback) {
-    const uri = this.id ? `${env.BASE_URL}/${path}/${this.id}` : `${env.BASE_URL}/${path}?lat=${this.latitude}&lng=${this.longitude}`
+    const uri = this.id
+      ? `${env.BASE_URL}/${path}/${this.id}`
+      : `${env.BASE_URL}/${path}?lat=${this.latitude}&lng=${this.longitude}`
 
     request({
       url: uri,

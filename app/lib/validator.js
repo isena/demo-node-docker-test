@@ -34,11 +34,14 @@ module.exports.paramValidation = (log, joi) => {
         if (result.error) {
           log.debug('validation error - %s', result.error.message)
 
+          const message = result.error.details[0].message || 'Invalid request'
+
+          const error = new errors.BadRequestError(message)
+          error.code = 'BadRequestError'
+
           res.send(
             httpStatus.BAD_REQUEST,
-            new errors.InvalidArgumentError(
-              'Invalid request ' + i + ' - ' + result.error.details[0].message
-            )
+            error
           )
           return
         } else {

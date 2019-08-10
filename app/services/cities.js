@@ -19,7 +19,9 @@ class CitiesService {
     const city = cities.find(_ => _.id === parseInt(id))
 
     if (!city) {
-      return new this.errors.NotFoundError(`not found`)
+      const error = new this.errors.NotFoundError(`not found`)
+      error.code = 'NotFoundError'
+      return error
     }
 
     return city
