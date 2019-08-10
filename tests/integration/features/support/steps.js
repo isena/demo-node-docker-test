@@ -13,15 +13,20 @@ Given('The latitude {float} and longitude {float}', function (latitude, longitud
 
 When('I make a GET request to {string}', function (path, callback) {
   this.get(path, (response) => {
-    expect(response.statusCode).toBe(200)
     this.setResponse(response)
     callback()
   })
 })
 
+Then('The response status code should be {int}', function (statusCode) {
+  expect(this.response.statusCode).toBe(statusCode)
+})
+
 Then('The response property {string} should be {string}', function (name, country) {
   const body = JSON.parse(this.response.body)
-  expect(body.data[name]).toBe(country)
+  const result = body.data || body
+
+  expect(result[name]).toBe(country)
 })
 
 Then('The response should be an array', function () {

@@ -23,7 +23,7 @@ class CustomWorld {
       headers: { 'Content-Type': 'application/json' } },
     (error, response) => {
       if (error) {
-        return callback(new Error('Error on GET request to ' + uri + ': ' + error.message))
+        return callback(new Error(`Error on GET request to ${uri}: ${error.message}`))
       }
       callback(response)
     })
