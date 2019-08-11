@@ -13,8 +13,8 @@ Given('The latitude {float} and longitude {float}', function (latitude, longitud
 
 Given('There are no latitude and longitude', function () {})
 
-When('I make a GET request to {string}', function (path, callback) {
-  this.get(path, (response) => {
+When('I make a GET request to {string}', function (keyword, callback) {
+  this.get(keyword, (response) => {
     this.setResponse(response)
     callback()
   })
@@ -26,19 +26,17 @@ Then('The response status code should be {int}', function (statusCode) {
 
 Then('The response property {string} should be {string}', function (name, country) {
   const body = JSON.parse(this.response.body)
-  const result = body.data || body
-
-  expect(result[name]).toBe(country)
+  expect(body[name]).toBe(country)
 })
 
 Then('The response should be an array', function () {
   const body = JSON.parse(this.response.body)
 
-  expect(Array.isArray(body.data)).toBe(true)
+  expect(Array.isArray(body)).toBe(true)
 })
 
 Then('The response should be not an empty array', function () {
   const body = JSON.parse(this.response.body)
 
-  expect(body.data.length).toBeGreaterThan(0)
+  expect(body.length).toBeGreaterThan(0)
 })

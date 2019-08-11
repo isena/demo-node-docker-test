@@ -14,10 +14,12 @@ class CustomWorld {
     this.longitude = ''
   }
 
-  get (path, callback) {
-    const uri = this.id
-      ? `${env.BASE_URL}/${path}/${this.id}`
-      : `${env.BASE_URL}/${path}?lat=${this.latitude}&lng=${this.longitude}`
+  get (keyword, callback) {
+    const uri = keyword === 'weather'
+      ? `${env.BASE_URL}/cities/${this.id}/${keyword}`
+      : this.id
+        ? `${env.BASE_URL}/${keyword}/${this.id}`
+        : `${env.BASE_URL}/${keyword}?lat=${this.latitude}&lng=${this.longitude}`
 
     request({
       url: uri,

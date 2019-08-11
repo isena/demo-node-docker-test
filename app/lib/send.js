@@ -21,20 +21,7 @@ const formatSend = (req, res, body) => {
     }
   }
 
-  const formatSuccess = (res, body) => {
-    if (body.data && body.pagination) {
-      return {
-        status: 'success',
-        data: body.data,
-        pagination: body.pagination
-      }
-    }
-
-    return {
-      status: 'success',
-      data: body
-    }
-  }
+  const formatSuccess = (res, body) => body
 
   let response = (body instanceof Error) ? formatError(res, body) : formatSuccess(res, body)
 

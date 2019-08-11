@@ -8,7 +8,7 @@ Scenario: Making a GET request with id
   And The response property "name" should be "Mannheim"
   And The response property "country" should be "DE"
 
-Scenario: Making a GET request with and invalid id
+Scenario: Making a GET request with an invalid id
   Given The city id 999999999
   When I make a GET request to "cities"
   Then The response status code should be 404

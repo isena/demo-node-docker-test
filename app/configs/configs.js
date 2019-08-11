@@ -5,7 +5,9 @@ module.exports = () => ({
     name: process.env.APP_NAME,
     port: process.env.APP_PORT || 8080,
     environment: process.env.APPLICATION_ENV,
-    logpath: process.env.LOG_PATH
+    logpath: process.env.LOG_PATH,
+    weatherAPI: process.env.APP_WEATHER_API,
+    weatherAPIKEY: process.env.APP_WEATHER_API_KEY
   },
   application_logging: {
     file: process.env.LOG_PATH,

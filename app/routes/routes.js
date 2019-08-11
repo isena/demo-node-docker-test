@@ -12,6 +12,7 @@ module.exports.register = (server, serviceLocator) => {
     (req, res, next) =>
       serviceLocator.get('citiesController').getCity(req, res, next)
   )
+
   server.get(
     {
       path: '/cities',
@@ -22,5 +23,17 @@ module.exports.register = (server, serviceLocator) => {
     },
     (req, res, next) =>
       serviceLocator.get('citiesController').getCities(req, res, next)
+  )
+
+  server.get(
+    {
+      path: '/cities/:id/weather',
+      name: 'Get City Weather',
+      validation: {
+        params: require('../validations/get_weather.js')
+      }
+    },
+    (req, res, next) =>
+      serviceLocator.get('weatherController').get(req, res, next)
   )
 }

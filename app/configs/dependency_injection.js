@@ -15,17 +15,32 @@ serviceLocator.register('cities', () => require('../resources/city.list.json'))
 
 serviceLocator.register('citiesService', (serviceLocator) => {
   const errors = serviceLocator.get('errors')
-  const CitiesService = require('../services/cities')
+  const Service = require('../services/cities')
 
-  return new CitiesService(errors)
+  return new Service(errors)
+})
+
+serviceLocator.register('weatherService', (serviceLocator) => {
+  const errors = serviceLocator.get('errors')
+  const Service = require('../services/weather')
+
+  return new Service(errors)
 })
 
 serviceLocator.register('citiesController', (serviceLocator) => {
   const log = serviceLocator.get('logger')
-  const citiesService = serviceLocator.get('citiesService')
-  const CitiesController = require('../controllers/cities')
+  const service = serviceLocator.get('citiesService')
+  const Controller = require('../controllers/cities')
 
-  return new CitiesController(log, citiesService)
+  return new Controller(log, service)
+})
+
+serviceLocator.register('weatherController', (serviceLocator) => {
+  const log = serviceLocator.get('logger')
+  const service = serviceLocator.get('weatherService')
+  const Controller = require('../controllers/weather')
+
+  return new Controller(log, service)
 })
 
 module.exports = serviceLocator

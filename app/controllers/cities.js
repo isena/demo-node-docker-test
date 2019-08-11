@@ -1,15 +1,15 @@
 'use strict'
 
-class CitiesController {
-  constructor (log, citiesService) {
+class Controller {
+  constructor (log, service) {
     this.log = log
-    this.citiesService = citiesService
+    this.service = service
   }
 
   getCity (req, res) {
     try {
       const { id } = req.params
-      const result = this.citiesService.getCity(id)
+      const result = this.service.getCity(id)
       res.send(result)
     } catch (err) {
       this.log.error(err.message)
@@ -20,7 +20,7 @@ class CitiesController {
   getCities (req, res) {
     try {
       const { lat, lng } = req.query
-      const result = this.citiesService.getCities(lat, lng)
+      const result = this.service.getCities(lat, lng)
       res.send(result)
     } catch (err) {
       this.log.error(err.message)
@@ -29,4 +29,4 @@ class CitiesController {
   }
 }
 
-module.exports = CitiesController
+module.exports = Controller

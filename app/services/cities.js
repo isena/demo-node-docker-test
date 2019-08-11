@@ -10,7 +10,7 @@ const distance = (city, latitude, longitude) =>
     { latitude, longitude }
   )
 
-class CitiesService {
+class Service {
   constructor (errors) {
     this.errors = errors
   }
@@ -35,4 +35,4 @@ class CitiesService {
   }
 }
 
-module.exports = CitiesService
+module.exports = Service
