@@ -164,6 +164,7 @@ docker run \
 * [restify](http://restify.com/):  web service framework for building RESTful web services;
 * [winston](https://www.npmjs.com/package/winston): logging library;
 * [joi](https://github.com/hapijs/joi): Object schema validation;
+* [standard](https://www.npmjs.com/package/standard): JavaScript style guide, linter, and formatter;
 * [dotenv](https://www.npmjs.com/package/dotenv): module that loads environment variables from a `.env` file into `process.env`;
 * [cucumber](https://cucumber.io/): tool for running automated tests written in plain language. We use here for integration tests;
 * [jest](https://jestjs.io): JavaScript testing framework. Used here for unit testing;
