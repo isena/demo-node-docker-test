@@ -2,7 +2,7 @@
 'use strict'
 
 const error = require('restify-errors')
-const CitiesService = require('../../../../app/services/cities')
+const Service = require('../../../../app/services/cities')
 
 const cities = [
   {
@@ -24,11 +24,11 @@ const cities = [
     }
   }
 ]
-const citiesService = new CitiesService(error, cities)
+const service = new Service(error, cities)
 
-describe('citiesService', () => {
+describe('cities service', () => {
   it('returns an object with a valid id', () => {
-    expect(citiesService.getCity(2873891)).toMatchObject(
+    expect(service.getCity(2873891)).toMatchObject(
       {
         id: 2873891,
         name: 'Mannheim',
@@ -39,7 +39,7 @@ describe('citiesService', () => {
   })
 
   it('returns an error with an ivalid id', () => {
-    expect(citiesService.getCity('invalid').body).toMatchObject(
+    expect(service.getCity('invalid').body).toMatchObject(
       {
         code: 'NotFound',
         message: 'not found'
@@ -48,14 +48,14 @@ describe('citiesService', () => {
   })
 
   it('returns a list of cities with valid latitude and longitude', () => {
-    const cities = citiesService.getCities(49.48, 8.46)
+    const cities = service.getCities(49.48, 8.46)
     expect(Array.isArray(cities)).toBe(true)
     expect(cities.length).toBeGreaterThan(0)
     expect(cities[0]).toHaveProperty('id', 'name', 'country', 'coord')
   })
 
   it('returns an empty list invalid latitude and longitude', () => {
-    const cities = citiesService.getCities(999999, 999999)
+    const cities = service.getCities(999999, 999999)
     expect(Array.isArray(cities)).toBe(true)
     expect(cities.length).toEqual(0)
   })
