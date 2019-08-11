@@ -99,6 +99,8 @@ export APP_HOST="localhost"
 
 ### Run
 
+With the [service](#start) running, run the following command:
+
 ```
 npm test
 ```
