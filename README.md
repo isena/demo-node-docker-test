@@ -166,6 +166,50 @@ docker run \
   -ti  --rm  demo-weather-integration-tests:0.0.1
 ```
 
+# Routes
+
+## `GET /cities?lat={latitude}&lng={longitude}`
+
+* `HTTP 200 Ok` with body:
+```
+➜  ~ curl http://localhost:5000/cities\?lat\=49.48\&lng\=8.46
+[{"id":2864869,"name":"Neuhofen","country":"DE","coord":{"lon":8.42472,"lat":49.42778}},...]
+```
+
+* `HTTP 400 Bad Request` if parameters are missing:
+```
+➜  ~ curl http://localhost:5000/cities\?lat\=\&lng\=
+{"status":"error","message":"lat/lng required","code":"BadRequestError"}
+```
+
+## `GET /cities/{city_id}`
+
+* `HTTP 200 Ok` with body:
+```
+➜  ~ curl http://localhost:5000/cities/2873891
+{"id":2873891,"name":"Mannheim","country":"DE","coord":{"lon":8.46472,"lat":49.488331}}
+```
+
+* `HTTP 404 Not Found` if the `city_id` was not found:
+```
+➜  ~ curl http://localhost:5000/cities/99999999
+{"status":"error","message":"not found","code":"NotFoundError"}
+```
+
+## `GET /cities/{city_id}/weather`
+
+* `HTTP 200 Ok` with body:
+```
+➜  ~ curl http://localhost:5000/cities/2867310/weather
+{"coord":{"lon":8.36,"lat":49.44},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"base":"stations","main":{"temp":288.15,"pressure":1017,"humidity":87,"temp_min":285.93,"temp_max":290.37},"visibility":10000,"wind":{"speed":3.6,"deg":210},"clouds":{"all":0},"dt":1565567145,"sys":{"type":1,"id":1265,"message":0.0076,"country":"DE","sunrise":1565583171,"sunset":1565635839},"timezone":7200,"id":2867310,"name":"Mutterstadt","cod":200}
+```
+
+* `HTTP 404 Not Found` if the `city_id` was not found:
+```
+➜  ~ curl http://localhost:5000/cities/99999999/weather
+{"status":"error","message":"not found","code":"NotFoundError"}
+```
+
 # ToDo
 
 * Enable security protocol ([TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security));
