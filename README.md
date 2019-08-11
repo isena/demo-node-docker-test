@@ -82,12 +82,22 @@ npm run test:watch
 
 ## Integration
 
+### Install
+
+In `integration` directory:
+
+```
+npm install
+```
+
+### Set environment variable
+
 When running locally, set `APP_HOST`:
 ```
 export APP_HOST="localhost"
 ```
 
-In `integration` directory:
+### Run
 
 ```
 npm test
