@@ -9,9 +9,12 @@ Although the formula is not complex (see Haversine formula: https://en.wikipedia
 
 ## Docker 
 
-### Build
+### Build 
+
+#### App
 
 ```
+cd app
 docker build -t demo-weather:0.0.1 .
 ```
 
@@ -19,3 +22,19 @@ docker build -t demo-weather:0.0.1 .
 ```
 docker run --env APP_WEATHER_API_KEY=<<<API_KEY_VALUE_HERE>>> -ti  -p 5000:5000 --rm  demo-weather:0.0.1
 ```
+
+
+## Tests
+
+`cd app`  or `cd integration` and then:
+
+```
+npm test
+```
+or 
+
+```
+npm run test:watch
+```
+
+to monitor changes and restart automatically.

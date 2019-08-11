@@ -1,7 +1,7 @@
 /* eslint-env jest */
 'use strict'
 
-const config = require('../../../../app/configs/configs')()
+const config = require('../../../../configs/configs')()
 
 describe('config', () => {
   it('has property app', () =>

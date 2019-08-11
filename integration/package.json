@@ -1,0 +1,29 @@
+{
+  "name": "demo-weather-integration-tests",
+  "version": "0.0.1",
+  "description": "Weather service integration tests",
+  "scripts": {
+    "test": "cucumber-js ./",
+    "test:watch": "nodemon -e js,feature -x npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git URL there..."
+  },
+  "keywords": [
+    "demo",
+    "weather",
+    "REST",
+    "API",
+    "integration",
+    "tests"
+  ],
+  "author": "Isaac Sena <isaac.sena@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "cucumber": "^5.1.0",
+    "dotenv": "^8.0.0",
+    "jest": "^24.8.0",
+    "standard": "^13.1.0"
+  }
+}

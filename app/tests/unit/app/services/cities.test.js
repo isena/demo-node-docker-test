@@ -2,7 +2,7 @@
 'use strict'
 
 const error = require('restify-errors')
-const Service = require('../../../../app/services/cities')
+const Service = require('../../../../services/cities')
 
 const cities = [
   {

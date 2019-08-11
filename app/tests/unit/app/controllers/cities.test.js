@@ -6,7 +6,7 @@ const req = {
   params: { id: 1 },
   query: { lat: 2, lng: 3 }
 }
-const Controller = require('../../../../app/controllers/cities')
+const Controller = require('../../../../controllers/cities')
 
 describe('controller', () => {
   it('getCity calls res.send successfully', () => {

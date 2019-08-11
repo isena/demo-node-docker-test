@@ -5,7 +5,7 @@ const logger = { error: jest.fn() }
 const req = {
   params: { id: 1 }
 }
-const Controller = require('../../../../app/controllers/weather')
+const Controller = require('../../../../controllers/weather')
 
 describe('weather controller', () => {
   it('get calls res.send successfully', () => {

@@ -4,14 +4,10 @@
   "description": "A REST-based weather service",
   "main": "server.js",
   "scripts": {
-    "start": "node app/server.js",
-    "start:watch": "nodemon app/server.js",
-    "test": "npm run test:integration && npm run test:unit",
-    "test:watch": "nodemon -e js,feature -x npm run test",
-    "test:unit": "jest",
-    "test:unit:watch": "nodemon -e js -x npm run test:unit",
-    "test:integration": "cucumber-js tests/integration",
-    "test:integration:watch": "nodemon -e js,feature -x npm run test:integration"    
+    "start": "node server.js",
+    "start:watch": "nodemon server.js",
+    "test": "jest",
+    "test:watch": "nodemon -e js,feature -x npm run test"
   },
   "repository": {
     "type": "git",
@@ -36,7 +32,6 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "cucumber": "^5.1.0",
     "jest": "^24.8.0",
     "standard": "^13.1.0"
   }

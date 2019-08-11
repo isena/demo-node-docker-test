@@ -2,7 +2,7 @@
 'use strict'
 
 const errors = require('restify-errors')
-const Service = require('../../../../app/services/weather')
+const Service = require('../../../../services/weather')
 
 describe('weather service', () => {
   it('returns an object', () => {

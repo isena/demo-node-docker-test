@@ -1,7 +1,7 @@
 /* eslint-env jest */
 'use strict'
 
-const dependencies = require('../../../../app/configs/dependency_injection')
+const dependencies = require('../../../../configs/dependency_injection')
 
 describe('dependencies', () => {
   it('has property dependencyMap', () =>
