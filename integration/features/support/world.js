@@ -8,18 +8,12 @@ const env = require('./env')
 
 class CustomWorld {
   constructor () {
-    this.id = ''
-    this.queryParams = ''
-    this.latitude = ''
-    this.longitude = ''
+    this.endpoint = ''
+    this.response = ''
   }
 
-  get (keyword, callback) {
-    const uri = keyword === 'weather'
-      ? `${env.BASE_URL}/cities/${this.id}/${keyword}`
-      : this.id
-        ? `${env.BASE_URL}/${keyword}/${this.id}`
-        : `${env.BASE_URL}/${keyword}?lat=${this.latitude}&lng=${this.longitude}`
+  get (callback) {
+    const uri = `${env.BASE_URL}/${this.endpoint}`
 
     request({
       url: uri,
@@ -33,13 +27,8 @@ class CustomWorld {
     })
   }
 
-  setID (id) {
-    this.id = id
-  }
-
-  setCoordinate (latitude, longitude) {
-    this.latitude = latitude
-    this.longitude = longitude
+  setEndpoint (endpoint) {
+    this.endpoint = endpoint
   }
 
   setResponse (response) {

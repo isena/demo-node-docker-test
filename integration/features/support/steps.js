@@ -3,18 +3,14 @@
 const { Given, When, Then } = require('cucumber')
 const expect = require('expect')
 
-Given('The city id {int}', function (id) {
-  this.setID(id)
-})
-
-Given('The latitude {float} and longitude {float}', function (latitude, longitude) {
-  this.setCoordinate(latitude, longitude)
+Given('I have the endpoint {string}', function (endpoint) {
+  this.setEndpoint(endpoint)
 })
 
 Given('There are no latitude and longitude', function () {})
 
-When('I make a GET request to {string}', function (keyword, callback) {
-  this.get(keyword, (response) => {
+When('I make a GET request', function (callback) {
+  this.get((response) => {
     this.setResponse(response)
     callback()
   })
