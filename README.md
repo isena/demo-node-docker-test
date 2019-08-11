@@ -35,12 +35,12 @@ docker build -t demo-weather:0.0.1 .
 #### Run
 
 ```
-export APP_HOST="demo-weather-api"
 export APP_WEATHER_API_KEY="<<<API_KEY_VALUE_HERE>>>"
+export APP_HOST="demo-weather-api"
 
 docker run \
   --env APP_WEATHER_API_KEY=$APP_WEATHER_API_KEY \
-  -p $APP_PORT:$APP_PORT \
+  -p 5000:5000 \
   --name $APP_HOST \
   -ti --rm  demo-weather:0.0.1
 ```
