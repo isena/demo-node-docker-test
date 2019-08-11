@@ -3,7 +3,27 @@
 
 const error = require('restify-errors')
 const CitiesService = require('../../../../app/services/cities')
-const citiesService = new CitiesService(error)
+const cities = [
+  {
+    id: 2873891,
+    name: 'Mannheim',
+    country: 'DE',
+    coord: {
+      lon: 8.46472,
+      lat: 49.488331
+    }
+  },
+  {
+    id: 2867310,
+    name: 'Mutterstadt',
+    country: 'DE',
+    coord: {
+      lon: 8.35611,
+      lat: 49.441391
+    }
+  }
+]
+const citiesService = new CitiesService(error, cities)
 
 describe('citiesService', () => {
   it('returns an object with a valid id', () => {

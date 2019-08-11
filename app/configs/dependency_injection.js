@@ -7,8 +7,6 @@ serviceLocator.register('logger', () =>
   require('../lib/logger').create(config.application_logging)
 )
 
-serviceLocator.register('httpStatus', () => require('http-status'))
-
 serviceLocator.register('errors', () => require('restify-errors'))
 
 serviceLocator.register('requests', () => require('request'))
@@ -17,9 +15,10 @@ serviceLocator.register('cities', () => require('../resources/city.list.json'))
 
 serviceLocator.register('citiesService', (serviceLocator) => {
   const errors = serviceLocator.get('errors')
+  const cities = serviceLocator.get('cities')
   const Service = require('../services/cities')
 
-  return new Service(errors)
+  return new Service(errors, cities)
 })
 
 serviceLocator.register('weatherService', (serviceLocator) => {

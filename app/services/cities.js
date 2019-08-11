@@ -1,8 +1,6 @@
 'use strict'
 
 const geolib = require('geolib')
-const dependencies = require('../configs/dependency_injection')
-const cities = dependencies.get('cities')
 
 const distance = (city, latitude, longitude) =>
   geolib.getDistance(
@@ -11,12 +9,13 @@ const distance = (city, latitude, longitude) =>
   )
 
 class Service {
-  constructor (errors) {
+  constructor (errors, cities) {
     this.errors = errors
+    this.cities = cities
   }
 
   getCity (id) {
-    const city = cities.find(_ => _.id === parseInt(id))
+    const city = this.cities.find(_ => _.id === parseInt(id))
 
     if (!city) {
       const error = new this.errors.NotFoundError(`not found`)
@@ -29,7 +28,7 @@ class Service {
 
   getCities (latitude, longitude) {
     const maxRadius = 10000
-    return cities.filter(
+    return this.cities.filter(
       city => distance(city, latitude, longitude) <= maxRadius
     )
   }
