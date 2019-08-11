@@ -3,7 +3,7 @@
 module.exports = () => ({
   app: {
     name: process.env.APP_NAME,
-    port: process.env.APP_PORT || 8080,
+    port: process.env.APP_PORT || 5000,
     environment: process.env.APPLICATION_ENV,
     logpath: process.env.LOG_PATH,
     weatherAPI: process.env.APP_WEATHER_API,

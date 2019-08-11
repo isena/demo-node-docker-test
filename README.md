@@ -37,7 +37,6 @@ docker build -t demo-weather:0.0.1 .
 ```
 export APP_HOST="demo-weather-api"
 export APP_WEATHER_API_KEY="<<<API_KEY_VALUE_HERE>>>"
-export APP_PORT=5000
 
 docker run \
   --env APP_WEATHER_API_KEY=$APP_WEATHER_API_KEY \
@@ -62,7 +61,6 @@ docker build -t demo-weather-integration-tests:0.0.1 .
 
 ```
 export APP_HOST="demo-weather-api"
-export APP_PORT=5000
 
 docker run \
   --env APP_HOST=$APP_HOST \

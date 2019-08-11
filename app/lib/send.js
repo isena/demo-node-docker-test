@@ -23,7 +23,9 @@ const formatSend = (req, res, body) => {
 
   const formatSuccess = (res, body) => body
 
-  let response = (body instanceof Error) ? formatError(res, body) : formatSuccess(res, body)
+  let response = (body instanceof Error)
+    ? formatError(res, body)
+    : formatSuccess(res, body)
 
   response = JSON.stringify(response)
   res.header('Content-Length', Buffer.byteLength(response))

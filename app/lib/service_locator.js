@@ -5,36 +5,36 @@ function ServiceLocator () {
   this.dependencyCache = {}
 }
 
-ServiceLocator.prototype.register = function (dependencyName, constructor) {
+ServiceLocator.prototype.register = function (name, constructor) {
   if (typeof constructor !== 'function') {
-    throw new Error(`${dependencyName}: Dependency constructor is not a function`)
+    throw new Error(`${name}: constructor is not a function`)
   }
 
-  if (!dependencyName) {
-    throw new Error('Invalid depdendency name provided')
+  if (!name) {
+    throw new Error('Invalid depdendency name')
   }
 
-  this.dependencyMap[dependencyName] = constructor
+  this.dependencyMap[name] = constructor
 }
 
-ServiceLocator.prototype.get = function (dependencyName) {
-  if (this.dependencyMap[dependencyName] === undefined) {
-    throw new Error(`${dependencyName}: Attempting to retrieve unknown dependency`)
+ServiceLocator.prototype.get = function (name) {
+  if (this.dependencyMap[name] === undefined) {
+    throw new Error(`${name}: Attempting to retrieve unknown dependency`)
   }
 
-  if (typeof this.dependencyMap[dependencyName] !== 'function') {
-    throw new Error(`${dependencyName}: Dependency constructor is not a function`)
+  if (typeof this.dependencyMap[name] !== 'function') {
+    throw new Error(`${name}: constructor is not a function`)
   }
 
-  if (this.dependencyCache[dependencyName] === undefined) {
-    const dependencyConstructor = this.dependencyMap[dependencyName]
+  if (this.dependencyCache[name] === undefined) {
+    const dependencyConstructor = this.dependencyMap[name]
     const dependency = dependencyConstructor(this)
     if (dependency) {
-      this.dependencyCache[dependencyName] = dependency
+      this.dependencyCache[name] = dependency
     }
   }
 
-  return this.dependencyCache[dependencyName]
+  return this.dependencyCache[name]
 }
 
 ServiceLocator.prototype.clear = function () {
