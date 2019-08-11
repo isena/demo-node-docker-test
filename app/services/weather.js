@@ -1,6 +1,5 @@
 'use strict'
 
-const request = require('request')
 const config = require('../configs/configs')()
 
 const responseError = (errors, response, message) => {
@@ -18,12 +17,13 @@ const responseError = (errors, response, message) => {
 }
 
 class Service {
-  constructor (errors) {
+  constructor (errors, requests) {
     this.errors = errors
+    this.requests = requests
   }
 
   get (id, result) {
-    request(`${config.app.weatherAPI}?id=${id}&APPID=${config.app.weatherAPIKEY}`,
+    this.requests(`${config.app.weatherAPI}?id=${id}&APPID=${config.app.weatherAPIKEY}`,
       (error, response) => {
         const body = JSON.parse(response.body)
 

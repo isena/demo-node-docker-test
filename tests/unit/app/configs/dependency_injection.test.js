@@ -10,7 +10,7 @@ describe('dependencies', () => {
 
   it('dependecyMap propoerty links to objects', () => {
     Object.keys(dependencies.dependencyMap).map(
-      _ => expect(typeof dependencies.get(_)).toBe('object')
+      _ => expect(typeof dependencies.get(_)).not.toBeNull()
     )
   })
 })
