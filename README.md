@@ -113,13 +113,15 @@ npm run test:watch
 
 # Docker Compose
 
-You can also use `docker-compose`:
+This may be the **simplest way** to run the project. After [setting the environment variables](#set-environment-variables)), just run the following command:
 
 ```
 docker-compose up
 ```
 
-# Docker
+and the [service](./app) will be started and the [integration](./integration) tests will be executed.
+
+# Docker (without compose)
 
 In `app` directory:
 
