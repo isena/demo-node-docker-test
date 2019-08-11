@@ -113,7 +113,7 @@ npm run test:watch
 
 # Docker Compose
 
-This may be the **simplest way** to run the project. After [setting the environment variables](#set-environment-variables)), just run the following command:
+This may be the **simplest way** to run the project. After [setting the environment variables](#set-environment-variables), just run the following command:
 
 ```
 docker-compose up
