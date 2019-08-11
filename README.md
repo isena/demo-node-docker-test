@@ -1,4 +1,6 @@
 
+Note about how to get the API_KEY
+
 `require` in node runs synchronously. Besides that, the data (cities) here will be chached, since it is static and it will not be changed during the server lifetime, this is not recommended due to performance degradation:
 ```
 const cities = require('./city.list.json')
