@@ -46,7 +46,7 @@ cp .env.example .env
 
 ### API Key
 
-The weather endpoint uses data from openweathermap.org. Go to openweathermap.org/api, subscribe (for free) and get an API Key to replace `<<<API_KEY_VALUE_HERE>>>` in the following command:
+The weather endpoint uses data from [openweathermap.org]. Go to [openweathermap.org/api], subscribe (for free) and get an API Key to replace `<<<API_KEY_VALUE_HERE>>>` in the following command:
 
 ```
 export APP_WEATHER_API_KEY="<<<API_KEY_VALUE_HERE>>>"
@@ -154,10 +154,10 @@ docker run \
 
 # ToDo
 
-* Enable Security Protocol (TLS);
-* Cover with more unit tests (and measure code coverage);
-* Add a tool for endpoint documentation/specification (e.g. Swagger);
-* Load cities dynamically. The current code loads the cities through a local json file and uses `require` that runs synchronously.
+* Enable security protocol ([TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security));
+* Cover with more unit tests (and measure [code coverage](https://en.wikipedia.org/wiki/Code_coverage));
+* Add a tool for endpoint documentation/specification (e.g. [Swagger](https://swagger.io/));
+* Load cities dynamically. The current code loads the cities through a [local json file](./app/resources/city.list.json) and uses `require` that runs synchronously.
 
 # Main dependencies
 
@@ -172,4 +172,4 @@ docker run \
 
 # License
 
-ISC
+[ISC](./LICENSE.txt)
