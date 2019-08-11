@@ -3,6 +3,7 @@
 
 const error = require('restify-errors')
 const CitiesService = require('../../../../app/services/cities')
+
 const cities = [
   {
     id: 2873891,
