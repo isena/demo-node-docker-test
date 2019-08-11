@@ -4,7 +4,8 @@
   "description": "A REST-based weather service",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon app/server.js",
+    "start": "node app/server.js",
+    "start:watch": "nodemon app/server.js",
     "test": "npm run test:integration && npm run test:unit",
     "test:watch": "nodemon -e js,feature -x npm run test",
     "test:unit": "jest",
