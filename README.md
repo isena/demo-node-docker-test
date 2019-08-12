@@ -217,8 +217,8 @@ docker run \
 * Add a tool for endpoint documentation/specification (e.g. [Swagger](https://swagger.io/));
 * Load cities dynamically. The current code loads the cities through a [local json file](./app/resources/city.list.json) and uses `require` that runs synchronously;
 * Add [semantic versioning](https://semver.org/);
-* Handle multiple CPUs;
-* Docker: use multi-stage builds.
+* Node.js: handle multiple CPUs;
+* Docker: use [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/).
 
 # Main dependencies
 
