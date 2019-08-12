@@ -216,8 +216,8 @@ docker run \
 * Cover with more unit tests (and measure [code coverage](https://en.wikipedia.org/wiki/Code_coverage));
 * Add a tool for endpoint documentation/specification (e.g. [Swagger](https://swagger.io/));
 * Load cities dynamically. The current code loads the cities through a [local json file](./app/resources/city.list.json) and uses `require` that runs synchronously;
-* Add semantic versioning;
-* Deal with worker (threads).
+* Add [semantic versioning](https://semver.org/);
+* Handle multiple CPUs.
 
 # Main dependencies
 
