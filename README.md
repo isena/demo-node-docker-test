@@ -3,7 +3,7 @@ Project to demonstrate a small [REST-based](https://en.wikipedia.org/wiki/Repres
 * [Node.js](https://nodejs.org);
 * [Docker](https://www.docker.com/) (including [Docker Compose](https://docs.docker.com/compose/));
 * [Unit tests](./app/tests) (in the same context of REST-based service);
-* [Integration tests](./integration) (in a separate container).
+* [Integration tests](./integration) (in a separated container).
 
 Main project structure:
 ```
